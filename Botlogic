@@ -1,0 +1,54 @@
+import discord
+
+from Botlogic import *
+ 
+
+# La variable intents almacena los privilegios del bot
+
+intents = discord.Intents.default()
+
+# Activar el privilegio de lectura de mensajes
+
+intents.message_content = True
+
+# Crear un bot en la variable cliente y transferirle los privilegios
+
+client = discord.Client(intents=intents)
+
+ 
+
+@client.event
+
+async def on_ready():
+
+    print(f'Hemos iniciado sesión como {client.user}')
+
+ 
+
+@client.event
+
+async def on_message(message):
+
+    if message.author == client.user:
+
+        return
+
+    if message.content.startswith('$hello'):
+        await message.channel.send("Hi! how are you today?")
+
+    if message.content.startswith('$fine'):
+        await message.channel.send ("Im glad to hear that :)")
+
+    if message.content.startswith('$like'):
+        await message.channel.send("I like to cook, draw and sleep hehehe")
+
+    elif message.content.startswith('$bye'):
+        await message.channel.send("Good bye friend :D")
+
+    elif message.content.startswith('$pass'):
+        await message.channel.send(gen_pass(10))
+
+    #else:
+        #await message.channel.send(message.content)
+
+client.run("")
