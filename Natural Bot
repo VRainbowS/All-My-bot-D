@@ -1,0 +1,39 @@
+import discord
+from discord.ext import commands
+import random
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='#', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Ha iniciado sesión como {bot.user}')
+
+@bot.command()
+async def Hola(ctx):
+    words=["La Tierra en realidad no es esférica","Los arrecifes de coral son la estructura viva más grande la Tierra","El interior de la Tierra no es sólido."]
+    inicio= "Hola sabias que" + random.choice(words)
+    await ctx.send(inicio)
+
+@bot.command()
+async def Rvideo(ctx):
+    video_url = "https://www.youtube.com/watch?v=cvakvfXj0KE"
+    await ctx.send(video_url)
+
+@bot.command()
+async def Manualidad(ctx):
+    Manu= ["Macetas con Botellas de vidrio" ,"Accesorios con materiales reciclados", "Juegos de mesa hechos a mano" ]
+    X=random.choice(Manu)
+    await ctx.send(X)
+
+
+@bot.command()
+async def Pregunta(ctx):
+    Pre=["¿Ya sabes para que se usan las 3 Rs?", "¿Que manualidad con materiales reciclables se te ocurrio?" ]
+    M=random.choice(Pre)
+    await ctx.send(M)
+
+
+bot.run("")
