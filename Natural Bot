@@ -35,5 +35,17 @@ async def Pregunta(ctx):
     M=random.choice(Pre)
     await ctx.send(M)
 
+@bot.command()
+async def contaminacion(ctx):
+    Pre=["Las botellas y bolsas de plastico son muy contaminantes, ya que estas tardan AÑOS en descomponerce", "El humo de los autos y fabricas son en cierto modo toxicos para la vida, ya que este contamina nuestros pulmones"]
+    M=random.choice(Pre)
+    await ctx.send(M)
 
-bot.run("")
+@bot.command()
+async def record(ctx):
+    Pre=["Recuerda, la tierra puede vivir sin nosotros, pero nosotros no podemos vivir sin ella"]
+    M=random.choice(Pre)
+    await ctx.send(M)
+
+
+bot.run("Token!")
